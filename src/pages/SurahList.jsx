@@ -7,6 +7,15 @@ export default function SurahList() {
   const [loading, setLoading] = useState(true);  
 
 
+   useEffect(() => {
+    fetch("https://equran.id/api/v2/surat")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Data dari API:", data); // <-- ini akan muncul di console
+      })
+      .catch((err) => console.error("Error:", err));
+  }, []);
+
   
   async function getSurah() {
     const url = "https://equran.id/api/v2/surat";
